@@ -1,5 +1,3 @@
-#  Copyright (c) ChernV (@otter18), 2021.
-
 import os
 import random
 
@@ -33,7 +31,8 @@ def say_welcome(message):
     logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used /start or /help')
     bot.send_message(
         message.chat.id,
-        '<b>Hello! This is a telegram bot template written by <a href="https://github.com/otter18">otter18</a></b>',
+        '<b>Коверкает слова. '
+        'При добавлении в группу рандомно реагирует на сообщения с негативным смысловым окрасом.</b>',
         parse_mode='html'
     )
 

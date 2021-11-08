@@ -6,3 +6,4 @@ pyTelegramBotAPI
 datetime
 tg-logger
 pytz
+nltk
