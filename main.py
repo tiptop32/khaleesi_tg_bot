@@ -1,5 +1,7 @@
 import logging
 import os
+import random
+
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
 from aiogram import Bot, types
@@ -31,15 +33,17 @@ async def on_shutdown(dispatcher):
     await bot.delete_webhook()
 
 
-@dp.message_handler(commands='test1')
+@dp.message_handler(commands='help')
 async def echo(message: types.Message):
-    await message.reply('Все ок')
+    await message.reply(
+        """Дейенеьис Буйерожденная! Хотю и передьязниваю фсех достёйных тього""")
 
 
 @dp.message_handler(content_types=['text'])
 async def replace_message(message: types.Message):
     input_msg = message.text
-    if evaluate_text(input_msg) <= -10:
+    is_negative = evaluate_text(input_msg) <= -10
+    if is_negative or random.randint(1, 100) < 10:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 

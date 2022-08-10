@@ -4,8 +4,7 @@ from affinn_ru import AFFINN
 
 
 def split_text(msg_text):
-    words = msg_text.split()
-    return words
+    return msg_text.split()
 
 
 def evaluate_word(word):
@@ -26,6 +25,5 @@ def evaluate_text(msg_text):
 
 
 if __name__ == '__main__':
-    text = """Ну просто хуй там ещё как было - давали задачи на распределение, все «сложные» в понимании 
-    ТЗ отдавали более опытным тестировщикам, потому что там реально надо было «выбивать» требования )))"""
+    text = """   ТЗ отдавали более опытным тестировщикам, потому что там реально надо было «выбивать» требования )))"""
     print(evaluate_text(text))
