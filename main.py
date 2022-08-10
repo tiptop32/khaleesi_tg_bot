@@ -4,6 +4,7 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
 from aiogram import Bot, types
 
+from replacing import replace_text
 
 TOKEN = os.getenv('BOT_TOKEN')
 bot = Bot(token=TOKEN)
@@ -32,6 +33,11 @@ async def on_shutdown(dispatcher):
 @dp.message_handler(commands='test1')
 async def echo(message: types.Message):
     await message.reply('Все ок')
+
+
+@dp.message_handler(content_types=['text'])
+async def replace_message(message: types.Message):
+    await message.reply(replace_text(message.text))
 
 
 if __name__ == '__main__':
