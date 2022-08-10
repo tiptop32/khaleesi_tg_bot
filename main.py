@@ -17,7 +17,7 @@ HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME')
 
 # webhook settings
 WEBHOOK_HOST = f'https://{HEROKU_APP_NAME}.herokuapp.com'
-WEBHOOK_PATH = f'/webhook/{os.getenv("NEW_RELIC_LICENSE_KEY")}'
+WEBHOOK_PATH = f'/webhook'
 WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 
 # webserver settings
