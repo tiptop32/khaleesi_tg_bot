@@ -1,9 +1,4 @@
-gunicorn==20.1.0
-Flask
-werkzeug
-sslcrypto
 datetime
-tg-logger==3.3
 pytz
 nltk
 aiogram==2.21
