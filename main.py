@@ -39,7 +39,7 @@ async def echo(message: types.Message):
 @dp.message_handler(content_types=['text'])
 async def replace_message(message: types.Message):
     input_msg = message.text
-    if evaluate_text(input_msg) < -10:
+    if evaluate_text(input_msg) <= -10:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
