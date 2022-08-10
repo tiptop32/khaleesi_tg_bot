@@ -19,9 +19,12 @@ from webhook import app
 
 dp = Dispatcher(bot)
 
+@dp.message_handler(commands='test1')
+async def replace_message(message: types.Message):
+    await message.reply('Все ок')
 
 @dp.message_handler(content_types=['text'])
-async def cmd_test1(message: types.Message):
+async def replace_message(message: types.Message):
     await message.reply(replace_text(message.text))
 
 if __name__ == '__main__':
