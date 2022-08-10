@@ -36,16 +36,17 @@ async def on_shutdown(dispatcher):
 @dp.message_handler(commands='help')
 async def echo(message: types.Message):
     await message.reply(
-        """Я Дейенерис Бурерожденная! Хочу и передразниваю всех достойных того.
-        Хочешь обратить на себя внимание - упомяни мое имя в своем сообщении.
-        Хочешь направить мой гнев - тегни чужое сообщение написав 'дракарис'
+        """"Это Кхалиси! Передразнивает всех достойных того.
+        - Случайно реагирует на некоторые сообщения, а также на сообщения с руганью или негативным окрасом.
+        - Откликакется на свое имя в сообщениях
+        - Можно натравить на чужое сообщение командой 'дракарис'
         """)
 
 
 @dp.message_handler(content_types=['text'])
 async def replace_message(message: types.Message):
     input_msg = message.text
-    is_negative = evaluate_text(input_msg) <= -10
+    is_negative = evaluate_text(input_msg) <= -20
     is_ref_bot = 'Кхалиси' in input_msg or 'кхалиси' in input_msg
     is_command_to_reply = 'дракарис' in input_msg or 'Дракарис' in input_msg
     if is_command_to_reply and message.reply_to_message is not None:
