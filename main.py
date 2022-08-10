@@ -1,6 +1,7 @@
 from os import getenv
 from aiogram import Dispatcher, executor, types
 
+from replacing import replace_text
 from setup import bot, logger
 from webhook import app
 
@@ -19,9 +20,9 @@ from webhook import app
 dp = Dispatcher(bot)
 
 
-@dp.message_handler(commands="test1")
+@dp.message_handler(content_types=['text'])
 async def cmd_test1(message: types.Message):
-    await message.reply("Test 1")
+    await message.reply(replace_text(message.text))
 
 if __name__ == '__main__':
     if getenv("IS_PRODUCTION", "False") == "True":
