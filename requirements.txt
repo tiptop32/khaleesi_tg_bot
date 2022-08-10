@@ -1,9 +1,9 @@
-gunicorn
+gunicorn==20.1.0
 Flask
 werkzeug
 sslcrypto
-pyTelegramBotAPI
 datetime
-tg-logger
+tg-logger==3.3
 pytz
 nltk
+aiogram==2.21
