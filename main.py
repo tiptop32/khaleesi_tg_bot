@@ -44,6 +44,10 @@ async def replace_message(message: types.Message):
     input_msg = message.text
     is_negative = evaluate_text(input_msg) <= -10
     is_ref_bot = 'Кхалиси' in input_msg or 'кхалиси' in input_msg
+    if is_ref_bot and message.reply_to_message.text is not None:
+        reply_to_message = message.reply_to_message.text
+        output_msg = replace_text(reply_to_message)
+        await message.reply(output_msg)
     if is_negative or is_ref_bot or random.randint(1, 100) < 10:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
