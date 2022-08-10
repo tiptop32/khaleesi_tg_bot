@@ -4,6 +4,7 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils.executor import start_webhook
 from aiogram import Bot, types
 
+from evaluate_for_negative import evaluate_text
 from replacing import replace_text
 
 TOKEN = os.getenv('BOT_TOKEN')
@@ -37,7 +38,10 @@ async def echo(message: types.Message):
 
 @dp.message_handler(content_types=['text'])
 async def replace_message(message: types.Message):
-    await message.reply(replace_text(message.text))
+    input_msg = message.text
+    if evaluate_text(input_msg) < -10:
+        output_msg = replace_text(input_msg)
+        await message.reply(output_msg)
 
 
 if __name__ == '__main__':
