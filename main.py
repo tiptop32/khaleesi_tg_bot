@@ -53,7 +53,7 @@ async def replace_message(message: types.Message):
     if is_command_to_reply and message.reply_to_message is not None:
         output_msg = replace_text(message.reply_to_message.text)
         await message.reply_to_message.reply(output_msg)
-    if is_negative or is_ref_bot or random.randint(1, 100) < 10:
+    if is_negative or is_ref_bot:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
