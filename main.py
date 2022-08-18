@@ -47,13 +47,20 @@ async def echo(message: types.Message):
 @dp.message_handler(content_types=['text'])
 async def replace_message(message: types.Message):
     input_msg = message.text
-    is_negative = evaluate_text(input_msg) <= -20
-    is_ref_bot = 'Кхалиси' in input_msg or 'кхалиси' in input_msg
+
     is_command_to_reply = 'дракарис' in input_msg or 'Дракарис' in input_msg
+
     if is_command_to_reply and message.reply_to_message is not None:
         output_msg = replace_text(message.reply_to_message.text)
         await message.reply_to_message.reply(output_msg)
-    if is_negative or is_ref_bot or random.randint(1, 100) < 5:
+
+    is_ref_bot = 'Кхалиси' in input_msg
+    is_negative = evaluate_text(input_msg) <= -20
+    if is_ref_bot or random.randint(1, 100) < 3:
+        output_msg = replace_text(input_msg)
+        await message.reply(output_msg)
+
+    if len(input_msg) < 140 and is_negative:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
