@@ -60,7 +60,7 @@ async def replace_message(message: types.Message):
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
-    if len(input_msg) < 140 and is_negative:
+    if len(input_msg) <= 140 and is_negative:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
