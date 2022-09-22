@@ -55,7 +55,8 @@ async def replace_message(message: types.Message):
         await message.reply_to_message.reply(output_msg)
 
     is_ref_bot = 'Кхалиси' in input_msg
-    if is_ref_bot or random.randint(1, 100) < 3:
+
+    if is_ref_bot:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
