@@ -60,8 +60,8 @@ async def replace_message(message: types.Message):
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
-    is_negative = evaluate_text(input_msg) <= -25
-    if len(input_msg) <= 140 and is_negative:
+    is_negative = evaluate_text(input_msg) <= -20
+    if (len(input_msg) <= 140 and is_negative) or random.randint(1, 100) < 3:
         output_msg = replace_text(input_msg)
         await message.reply(output_msg)
 
